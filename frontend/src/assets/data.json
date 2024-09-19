@@ -1,0 +1,55 @@
+[
+    {
+        "id": 1,
+        "view": {
+            "type": "file",
+            "template": "blank"
+        },
+        "folder_parent": null,
+        "name": "Presentación",
+        "content": "Hola soy Axel Lajones, tengo 20 años, conocí la programación a los 15 años y me gustó desde entonces, siempre aprendí y mejoré más mis conocimientos utilizando recursos de internet. Actualmente estoy cursando un grado en Ingeniería en Software, sigo pensando que en internet puedes aprender de todo y probablemente de mejor manera, pero considero que la universidad te brinda la posibilidad de desarrollar otras habilidades como el trabajo en equipo y la comunicación. En cuanto al desarrollo de software considero que me gusta más el área del backend construyendo sistemas y programando la comunicación entre sus componentes, pero al trabajar en mis proyectos personales tambíen he tenido que crear mis interfaces de usuario por lo que podría decir que de igual forma también tengo algo de nivel en el frontend. La mayoría de la experiencia que tengo la obtuve trabajando en proyectos personales, ya que a pesar de que aún no logro entrar en el mercado laboral, si me gusta pensar en herramientas que me podrían ayudar en mi día a día y base de código hacerlas realidad."
+    },
+    {
+        "id": 2,
+        "view": {
+            "type": "folder",
+            "template": ""
+        },
+        "folder_parent": null,
+        "name": "Proyectos",
+        "content": [
+            {
+                "id": 2.1,
+                "view": {
+                    "type": "file",
+                    "template": "project"
+                },
+                "folder_parent": "Proyectos",
+                "name": "PcToMovil",
+                "content": {
+                    "name": "PcToMovil",
+                    "description": "PcToMovil es un software de escritorio que utilíza tecnologías web para crear un servidor local en tu equipo al cual los demás dispositivos en tu red podrán conectarse ingresando la dirección de tu equipo en el navegador o escaneando el código QR generado al iniciar el programa.",
+                    "technologys": [
+                        "Python", "Django", "HTML", "CSS"
+                    ]
+                }
+            },
+            {
+                "id": 2.2,
+                "view": {
+                    "type": "file",
+                    "template": "project"
+                },
+                "folder_parent": "Proyectos",
+                "name": "Asistente Musical",
+                "content": {
+                    "name": "Asistente Musical",
+                    "description": "Este es un software de escritorio que te permite reproducir canciones y crear tus playlist mediante comandos de voz.",
+                    "technologys": [
+                        "Python"
+                    ]
+                }
+            }
+        ]
+    }
+]

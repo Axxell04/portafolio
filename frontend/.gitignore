@@ -1,10 +1,3 @@
-__pycache__
-.venv
-instance
-.env
-mkcert-v1.4.4-windows-amd64.exe
-tournament.com-key.pem
-tournament.com.pem
 # Logs
 logs
 *.log
