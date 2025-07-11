@@ -27,5 +27,5 @@ localStorage.getItem("username") ? isLogged.set(true) : isLogged.set(false);
 export const usernameSession = persistent("username","");
 
 //export const URLServer = readable("https://tournament.com")
-// export const URLServer = readable(window.location.origin)
-export const URLServer = readable("http://localhost:5000");
+export const URLServer = readable(window.location.origin)
+// export const URLServer = readable("http://localhost:5000");
