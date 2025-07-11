@@ -40,7 +40,6 @@
         })
     });
     if (res.status === 200) {
-        console.log(await res.json())
         isLogged.set(true);
         usernameSession.set(username);
         username = "";

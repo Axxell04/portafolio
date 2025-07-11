@@ -46,7 +46,6 @@
   
   function onBackupSelected(e: Event) {
     const target = e.target as HTMLInputElement;
-    console.log(target.files?.length)
     if (target && target.files?.length) {
       backupProjectToUpload.set(target.files[0]);
       let newContent: ContentBlankInterface | ContentProjectInterface = {

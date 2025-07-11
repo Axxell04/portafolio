@@ -167,9 +167,9 @@ def update_file():
         backup_images = request.files.get("backup_images")
         backup_project = request.files.get("backup_project")
 
-        print(id, name, template, content)
-        for delete_image in delete_images:
-            print(delete_image)
+        # print(id, name, template, content)
+        # for delete_image in delete_images:
+        #     print(delete_image)
             
         ManagerFile.update(id, name, template, content, new_images, delete_images, backup_images, backup_project)
         return jsonify(success=True, message="Archivo actualizado correctamente")

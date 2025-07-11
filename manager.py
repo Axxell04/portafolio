@@ -112,7 +112,6 @@ class ManagerFile():
                         if file_name.split(".")[-1] == "json":
                             with zip_ref.open(file_name) as json_file:
                                 content = json.load(json_file)
-                                print(content)
                         elif file_name.split(".")[-1] == "zip" and file.template == "project":
                             zip_images = zip_ref.read(file_name)
                             backup_images_names = self.save_backup_imgs(zip_images, file.name, True)

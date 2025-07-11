@@ -47,7 +47,6 @@
       typeof e.target.value === "string"
     ) {
       let value = e.target.value;
-      console.log(value);
       dataToUpdate.update((data) => {
         if (data != null && "name" in data) {
           data.name = value;

@@ -6,9 +6,9 @@
   import ActionBar from "./ActionBar.svelte";
 
   let visible: boolean = true;
-  templateEditor.subscribe((value) => {
-    console.log(value)
-  })
+  // templateEditor.subscribe((value) => {
+  //   console.log(value)
+  // })
 </script>
 
 {#if visible}
