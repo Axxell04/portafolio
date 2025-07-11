@@ -9,6 +9,8 @@ export const contentEditor: Writable<string> | any = writable("");
 export const dataToUpdate = writable<FileInterface|null>(null);
 export const imagesToUpload = writable<FileList|null>(null);
 export const imagesToDelete = writable<string[]>([]); 
+export const backupImagesToUpload = writable<File|null>(null);
+export const backupProjectToUpload = writable<File|null>(null);
 
 export const fileSelected = writable<{id:string, name:string}>({id:"", name:""});
 export const imgModal = writable("");
@@ -25,4 +27,5 @@ localStorage.getItem("username") ? isLogged.set(true) : isLogged.set(false);
 export const usernameSession = persistent("username","");
 
 //export const URLServer = readable("https://tournament.com")
-export const URLServer = readable(window.location.origin)
+// export const URLServer = readable(window.location.origin)
+export const URLServer = readable("http://localhost:5000");

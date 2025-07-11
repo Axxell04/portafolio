@@ -27,7 +27,7 @@
   {#if $modeEditor === "read"}
     <textarea
       disabled
-      class="bg-zinc-900 w-full h-full outline-none overflow-y-hidden"
+      class="bg-zinc-900 w-full h-full outline-none"
       >{content[""]}</textarea
     >
   {:else if $modeEditor === "edit"}

@@ -36,7 +36,7 @@
   <div class="flex flex-row gap-1">
     <input
       type="text"
-      class=" bg-neutral-800 text-neutral-300"
+      class=" bg-neutral-800 text-neutral-300 outline-none"
       on:input={(e) => updateName(e)}
     />
     <button

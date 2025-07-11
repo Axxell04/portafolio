@@ -118,7 +118,7 @@
 
       <div class=" max-w-full text-neutral-400 flex flex-col">
         <div class="flex flex-row gap-1">
-          <input type="text" class=" flex-grow bg-neutral-800 text-neutral-300" on:input={e => updateNameNewElement(e)}>
+          <input type="text" class=" flex-grow bg-neutral-800 outline-none text-neutral-300" on:input={e => updateNameNewElement(e)}>
           <button class=" ml-auto rounded-full flex-grow p-1 hover:bg-neutral-800 hover:text-neutral-300" on:click={createNewElement}>
             <Icon src={VscCheck} size={20}/>
           </button>

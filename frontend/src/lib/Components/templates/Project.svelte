@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Icon } from "svelte-icons-pack";
   import Technology from "../Technology.svelte";
-  import { modeEditor, dataToUpdate, imagesToUpload, URLServer, imagesToDelete } from "../../../stores/store";
+  import { modeEditor, dataToUpdate, imagesToUpload, URLServer, imagesToDelete, backupImagesToUpload, backupProjectToUpload } from "../../../stores/store";
 
   import ImgProject from "../ImgProject.svelte";
   import { isContentProjectInterface, type ContentProjectInterface } from "../Interfaces/ContentFileInterface";
@@ -10,8 +10,10 @@
   
   export let nameFile: string;
   export let content: ContentProjectInterface;
-  imagesToUpload.set(null)
-  imagesToDelete.set([])
+  imagesToUpload.set(null);
+  imagesToDelete.set([]);
+  backupImagesToUpload.set(null);
+  backupProjectToUpload.set(null);
 
   function updateDataFile (e: Event, section: string) {
     if (e.target != null && "value" in e.target && typeof e.target.value === "string") {
@@ -45,6 +47,14 @@
       imagesToUpload.set(target.files)
     }
   }
+  function addBackupImages (e: Event) {
+    const target = e.target as HTMLInputElement;
+    if (target && target.files instanceof FileList) {
+      backupImagesToUpload.set(target.files[0]);
+    }
+  }
+  
+
 </script>
   
 <div class="flex flex-1 flex-col gap-3 text-lg text-zinc-400">
@@ -112,6 +122,10 @@
     <div class="flex flex-col gap-1 place-items-center">
       <label class="font-medium" for="new_img">Agregar imagenes</label>
       <input name="new_img" class="w-fit rounded p-1 hover:cursor-pointer bg-zinc-800 outline-none" type="file" multiple accept=".jpg,.png" on:input={e=>addImages(e)}>
+    </div>
+    <div class="flex flex-col gap-1 place-items-center">
+      <label class="font-medium" for="new_img">Subir respaldo de imagenes</label>
+      <input name="new_img" class="w-fit rounded p-1 hover:cursor-pointer bg-zinc-800 outline-none" type="file" multiple accept=".zip" on:input={e=>addBackupImages(e)}>
     </div>
     {/if}
   </div>

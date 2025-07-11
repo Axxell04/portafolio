@@ -1,7 +1,8 @@
-from flask import Flask, render_template, request, jsonify, json
+from flask import Flask, render_template, request, jsonify, json, send_file
 from flask_login import login_required, login_user, logout_user, LoginManager
 from models import db, Folder, File
 from manager import ManagerUser, ManagerFolder, ManagerFile
+from flask_cors import CORS
 
 from config import config, init_user
 
@@ -13,6 +14,10 @@ app.config.from_object(config["production"])
 
 login_manager_app = LoginManager()
 login_manager_app.init_app(app)
+init_user()
+CORS(app, origins="*", supports_credentials=True)
+
+
 
 db.init_app(app)
 with app.app_context():
@@ -158,15 +163,38 @@ def update_file():
         content = json.loads(request.form["content"])
         new_images = request.files.getlist("new_images")
         delete_images = json.loads(request.form["delete_images"])
+        # Subiendo respaldo de un proyecto
+        backup_images = request.files.get("backup_images")
+        backup_project = request.files.get("backup_project")
+
         print(id, name, template, content)
         for delete_image in delete_images:
             print(delete_image)
             
-        ManagerFile.update(id, name, template, content, new_images, delete_images)
+        ManagerFile.update(id, name, template, content, new_images, delete_images, backup_images, backup_project)
         return jsonify(success=True, message="Archivo actualizado correctamente")
     except Exception as e:
         print(e)
         return RES_ERROR_PARAMS
+
+@app.route("/api/backup/file/<string:id>", methods=["GET"])
+# @login_required
+def backup_file(id):
+    file = db.session.get(File, id)
+    if not file:
+        return jsonify(success=False, message="Archivo no encontrado"), 404
+    
+    zip_file, zip_name = ManagerFile.download_backup(id)
+    if not zip_file:
+        return jsonify(success=False, message="No se pudo realizar la descarga"), 500
+    
+    return send_file(
+        zip_file,
+        mimetype="application/zip",
+        as_attachment=True,
+        download_name=zip_name
+    )
+
 
 ## FILE ##
 
